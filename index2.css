@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Potta+One&family=Roboto&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow-x: hidden;
+}
+
+.hero-section {
+  background: linear-gradient(
+      0deg,
+      rgb(9, 9, 9) 2.884%,
+      rgba(16, 16, 16, 0) 101.034%
+    ),
+    url("./hero-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 736px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.under-div {
+  width: 818px;
+  height: 235px;
+}
+.para1 {
+  color: rgb(255, 255, 255);
+  font-family: Work Sans;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+.hero-section h1 {
+  color: rgb(255, 255, 255);
+  font-family: Work Sans;
+  font-size: 51px;
+  font-weight: 700;
+  line-height: 64px;
+  text-align: center;
+  margin-bottom: 19px;
+}
+.para2 {
+  color: rgb(255, 255, 255);
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: center;
+  opacity: 0.7;
+  margin-bottom: 25px;
+}
+.button {
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  color: rgb(255, 255, 255);
+  font-family: Work Sans;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+
+  border-radius: 8px;
+  padding: 16px 25px;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover,
+.Imgname:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.496);
+  transition: 0.25s;
+}

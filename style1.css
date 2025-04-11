@@ -1,0 +1,13 @@
+@keyframes scaleUpDown {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-scale-up-down {
+  animation: scaleUpDown 2s ease-in-out infinite;
+}
