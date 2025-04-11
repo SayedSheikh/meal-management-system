@@ -1,3 +1,10 @@
+html {
+  scroll-behavior: smooth;
+}
+#navbar {
+  box-shadow: 3px 0 6px #659be7;
+}
+
 @keyframes scaleUpDown {
   0%,
   100% {

@@ -12,9 +12,9 @@ window.addEventListener("scroll", () => {
   });
 
   navLinks.forEach((link) => {
-    link.classList.remove("border-pink-500", "text-pink-500");
+    link.classList.remove("border-blue-500", "text-blue-500");
     if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("border-pink-500", "text-pink-500");
+      link.classList.add("border-blue-500", "text-blue-500");
     }
   });
 });

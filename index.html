@@ -3,97 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ScrollSpy Example</title>
+    <title>Yummy Clone - Tailwind</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./style1.css" />
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+    <link rel="stylesheet" href="./Styles/index.css" />
   </head>
-  <body>
-    <!-- Navbar -->
-    <header class="max-w-[1500px] mx-auto">
-      <nav
-        class="fixed top-0 left-0 py-[10px] w-full z-50 bg-transparent backdrop-blur shadow-md">
-        <ul class="flex justify-center gap-10 py-4 text-lg font-semibold">
-          <li>
-            <a
-              href="#home"
-              class="nav-link border-b-2 border-transparent text-black"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="#about"
-              class="nav-link border-b-2 border-transparent text-black"
-              >About</a
-            >
-          </li>
-          <li>
-            <a
-              href="#services"
-              class="nav-link border-b-2 border-transparent text-black"
-              >Gallery</a
-            >
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="nav-link border-b-2 border-transparent text-black"
-              >Book-Table</a
-            >
-          </li>
-        </ul>
-      </nav>
 
-      <!-- Hero -->
-      <div
-        class="bg-[#f2f2f2] flex justify-center items-center pt-[100px] pb-[50px] gap-[200px]">
-        <div class="text-black">
-          <h1 class="font-bold text-[50px]">
-            Enjoy your healthy <br />
-            delicious food
-          </h1>
-          <p class="font-normal text-[25px]">
-            Lorem ipsum dolor sit amet, consectetur <br />
-            adipisicing elit. Id, ad!
+  <body class="bg-white text-gray-800">
+    <!-- Login/Register Selection -->
+    <div
+      id="auth-section"
+      class="hero-section min-h-screen flex flex-col justify-center items-center space-y-6">
+      <section class="section">
+        <div class="under-div">
+          <p class="para1">Savor the Flavors</p>
+          <h1>Experience Culinary Excellence Food Experience</h1>
+          <p class="para2">
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC,
+            making it over 2000 years old. Richard McClintock
           </p>
-          <button
-            class="bg-pink-500 text-white px-6 py-2 rounded-lg mr-4 hover:bg-pink-600 transition">
-            btn-1
-          </button>
-          <button
-            class="bg-pink-500 text-white px-6 py-2 rounded-lg mr-4 hover:bg-pink-600 transition">
-            btn-2
-          </button>
+          <div class="gap-3 text-center">
+            <button
+              onclick="loginClick()"
+              class="btn px-6 py-2 bg-green-400 text-white rounded">
+              Login
+            </button>
+            <button
+              onclick="regClick()"
+              class="btn px-6 py-2 bg-pink-600 text-white rounded">
+              Register
+            </button>
+          </div>
         </div>
-        <div>
-          <img
-            class="w-[600px] animate-scale-up-down"
-            src="./\/image-from-rawpixel-id-15520168-png.png"
-            alt="" />
-        </div>
-      </div>
-    </header>
+      </section>
+    </div>
 
-    <!-- Sections -->
-    <section id="home" class="h-screen pt-24 text-center">
-      <h1 class="text-4xl">Home</h1>
-    </section>
-    <section id="about" class="h-screen pt-24 text-center">
-      <h1 class="text-4xl">About</h1>
-    </section>
-    <section id="services" class="h-screen pt-24 text-center">
-      <h1 class="text-4xl">Services</h1>
-    </section>
-    <section id="contact" class="h-screen pt-24 text-center">
-      <h1 class="text-4xl">Contact</h1>
-    </section>
-
-    <!-- JS ScrollSpy -->
-    <script src="./scripts/app.js"></script>
+    <script src="./scripts/toggle.js"></script>
   </body>
 </html>

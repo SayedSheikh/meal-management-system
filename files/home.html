@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./../Styles/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy&display=swap"
+      rel="stylesheet" />
+    <style type="text/tailwindcss">
+      @theme {
+        --color-primary: #f4f7ff;
+        --color-primary2: rgba(55, 82, 253, 0.2);
+      }
+      .font-poppins {
+        font-family: "Poppins", sans-serif;
+      }
+      .font-satisfy {
+        font-family: "Satisfy", cursive;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="max-w-[1500px] mx-auto">
+      <nav
+        id="navbar"
+        class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur border-b border-[#659be7]">
+        <div
+          class="max-w-[1500px] mx-auto flex justify-between items-center px-20 py-[10px]">
+          <h1 class="font-satisfy text-[30px] font-bold">
+            Meal<span class="text-blue-400">Management</span>
+          </h1>
+          <ul
+            class="flex justify-center gap-10 py-4 text-lg font-semibold font-poppins">
+            <li>
+              <a
+                href="#home"
+                class="nav-link border-b-2 border-transparent text-black"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="nav-link border-b-2 border-transparent text-black"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#services"
+                class="nav-link border-b-2 border-transparent text-black"
+                >Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="nav-link border-b-2 border-transparent text-black"
+                >Book-Table</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Hero -->
+      <div
+        class="bg-[#dbe3ee66] flex justify-center items-center pt-[100px] h-screen gap-[100px] font-poppins">
+        <div class="text-black">
+          <h1 class="font-bold text-[40px] mb-[20px]">
+            Fuel Your Day <br />
+            Healthy. Tasty. Hassle-Free.
+          </h1>
+          <p class="font-normal text-[20px]">
+            Simple, healthy meals made easy. <br />
+            Track, plan, and enjoy your food — stress-free.
+          </p>
+          <button
+            class="bg-blue-500 text-white px-6 py-2 rounded-lg mr-4 hover:bg-blue-600 transition mt-[20px] hover:shadow-lg active:shadow-none">
+            View meals
+          </button>
+        </div>
+        <div>
+          <img
+            class="w-[550px] animate-scale-up-down"
+            src="./../assets/image-from-rawpixel-id-15520168-png.png"
+            alt="" />
+        </div>
+      </div>
+    </header>
+
+    <!-- Sections -->
+    <section id="home" class="h-screen pt-24 text-center">
+      <h1 class="text-4xl">Home</h1>
+    </section>
+    <section id="about" class="h-screen pt-24 text-center">
+      <h1 class="text-4xl">About</h1>
+    </section>
+    <section id="services" class="h-screen pt-24 text-center">
+      <h1 class="text-4xl">Services</h1>
+    </section>
+    <section id="contact" class="h-screen pt-24 text-center">
+      <h1 class="text-4xl">Contact</h1>
+    </section>
+
+    <!-- JS ScrollSpy -->
+    <script src="./../scripts/app.js"></script>
+  </body>
+</html>
