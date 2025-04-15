@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meal Management</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="./../Styles/home.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,56 +26,135 @@
       .font-satisfy {
         font-family: "Satisfy", cursive;
       }
+      .btn-cus-shadow {
+        box-shadow: none;
+      }
+      .btn-cus-shadow:hover {
+        box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.597);
+      }
+      .btn-cus-shadow:active {
+        box-shadow: none;
+      }
     </style>
   </head>
   <body>
     <!-- Navbar -->
     <header class="max-w-[1500px] mx-auto">
-      <nav
+      <div
         id="navbar"
-        class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur border-b border-[#659be7]">
-        <div
-          class="max-w-[1500px] mx-auto flex justify-between items-center px-20 py-[10px]">
-          <h1 class="font-satisfy text-[30px] font-bold">
-            Meal<span class="text-blue-400">Management</span>
-          </h1>
-          <ul
-            class="flex justify-center gap-10 py-4 text-lg font-semibold font-poppins">
-            <li>
-              <a
-                href="#home"
-                class="nav-link border-b-2 border-transparent text-black"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a
-                href="#about"
-                class="nav-link border-b-2 border-transparent text-black"
-                >About</a
-              >
-            </li>
-            <li>
-              <a
-                href="#services"
-                class="nav-link border-b-2 border-transparent text-black"
-                >Gallery</a
-              >
-            </li>
-            <li>
-              <a
-                href="#contact"
-                class="nav-link border-b-2 border-transparent text-black"
-                >Book-Table</a
-              >
-            </li>
-          </ul>
+        class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur border-[#7a9fd3] navbar bg-base-100 shadow-sm justify-between">
+        <div class="flex items-center gap-[2px]">
+          <img class="w-[36px]" src="./../assets/logo.png" alt="" />
+          <a
+            class="btn btn-ghost text-[24px] font-bold font-poppins text-blue-500 pl-[1px]"
+            >UniMeal</a
+          >
         </div>
-      </nav>
+        <ul
+          class="self-center flex justify-center gap-10 py-4 text-lg font-semibold font-poppins">
+          <li>
+            <a
+              href="#home"
+              class="nav-link border-b-2 border-blue-500 border-transparent text-blue-500"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#menu"
+              class="nav-link border-b-2 border-transparent text-gray-600"
+              >Menu</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              class="nav-link border-b-2 border-transparent text-gray-600"
+              >About-us</a
+            >
+          </li>
 
+          <li>
+            <a
+              href="#contact"
+              class="nav-link border-b-2 border-transparent text-gray-600"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="#faq"
+              class="nav-link border-b-2 border-transparent text-gray-600"
+              >FAQ</a
+            >
+          </li>
+        </ul>
+
+        <div class="flex-none">
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+              <div class="indicator">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span class="badge badge-sm indicator-item">8</span>
+              </div>
+            </div>
+            <div
+              tabindex="0"
+              class="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-52 shadow">
+              <div class="card-body">
+                <span class="text-lg font-bold">8 Items</span>
+                <span class="text-info">Subtotal: $999</span>
+                <div class="card-actions">
+                  <button class="btn btn-primary btn-block">View cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown dropdown-end">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              </div>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+              <li>
+                <a class="justify-between">
+                  Profile
+                  <span class="badge">New</span>
+                </a>
+              </li>
+              <li><a>Order history</a></li>
+              <li onclick="handleLogout()"><a>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sections -->
+    <section id="home" class="h-screen">
+      <!-- <h1 class="text-4xl">Home</h1> -->
       <!-- Hero -->
       <div
-        class="bg-[#dbe3ee66] flex justify-center items-center pt-[100px] h-screen gap-[100px] font-poppins">
+        class="bg-[#ECFBF8] flex justify-center items-center pt-[100px] h-screen gap-[100px] font-poppins w-full">
         <div class="text-black">
           <h1 class="font-bold text-[40px] mb-[20px]">
             Fuel Your Day <br />
@@ -83,7 +166,7 @@
           </p>
           <button
             class="bg-blue-500 text-white px-6 py-2 rounded-lg mr-4 hover:bg-blue-600 transition mt-[20px] hover:shadow-lg active:shadow-none">
-            View meals
+            <a href="#menu">View meals</a>
           </button>
         </div>
         <div>
@@ -93,23 +176,327 @@
             alt="" />
         </div>
       </div>
-    </header>
+    </section>
+    <section id="menu" class="pt-24 text-center">
+      <h1 class="font-poppins font-bold text-[36px]">
+        <span class="">Our</span>
+        Menu
+      </h1>
+      <div
+        id="button-container"
+        class="flex justify-center items-center gap-[17px] mb-[27px] flex-wrap mt-[20px]">
+        <button
+          id="id-${el.id}"
+          onclick="loadLessons('${el.level_no}','id-${el.id}')"
+          class="btn btn-outline btn-primary h-[35px]">
+          <i class="fa-solid fa-book-open text-base"></i>Breakfast
+        </button>
+        <button
+          id="id-${el.id}"
+          onclick="loadLessons('${el.level_no}','id-${el.id}')"
+          class="btn btn-outline btn-primary h-[35px]">
+          <i class="fa-solid fa-book-open text-base"></i>Launch
+        </button>
+        <button
+          id="id-${el.id}"
+          onclick="loadLessons('${el.level_no}','id-${el.id}')"
+          class="btn btn-outline btn-primary h-[35px]">
+          <i class="fa-solid fa-book-open text-base"></i>Dinner
+        </button>
+        <button
+          id="id-${el.id}"
+          onclick="loadLessons('${el.level_no}','id-${el.id}')"
+          class="btn btn-outline btn-primary h-[35px]">
+          <i class="fa-solid fa-book-open text-base"></i>Snacks
+        </button>
+        <button
+          id="id-${el.id}"
+          onclick="loadLessons('${el.level_no}','id-${el.id}')"
+          class="btn btn-outline btn-primary h-[35px]">
+          <i class="fa-solid fa-book-open text-base"></i>Ice cream
+        </button>
+      </div>
+      <!-- menu cards container -->
+      <div
+        class="max-w-[1250px] mx-auto flex flex-wrap gap-[20px] justify-center mt-[60px]">
+        <div
+          class="card bg-base-100 w-70 shadow-sm hover:scale-[1.04] transition-all duration-200">
+          <figure>
+            <img
+              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+              alt="Shoes" />
+          </figure>
+          <div class="card-body p-[12px]">
+            <h2 class="card-title flex justify-between font-bold">
+              <span>Card Title</span> <span class="text-green-600">$12.34</span>
+            </h2>
+            <p class="text-start">
+              A card component has a figure, a body part, and inside body there
+              are title and actions parts
+            </p>
+            <div
+              class="flex justify-start items-center border border-gray-400 rounded-sm w-[45%] mt-[10px]">
+              <p class="font-semibold cursor-pointer">-</p>
+              <p class="border-l border-r border-gray-400 font-bold">12</p>
+              <p class="font-semibold cursor-pointer">+</p>
+            </div>
+            <div class="card-actions justify-end">
+              <button
+                class="h-[30px] w-full btn btn-primary text-[12px] px-[15px] py-[0px]">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="h-screen pt-24 text-center text-poppins">
+      <!-- <h1 class="text-4xl">About</h1> -->
+      <div class="bg-[#ECFBF8] py-12 px-4 md:px-10">
+        <div class="max-w-5xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">About Us</h2>
+          <p class="text-gray-600 text-lg mb-8">
+            Welcome to the Meal Management System — a modern web application
+            designed to simplify and streamline the entire process of managing
+            daily meals, expenses, and groceries in a mess or shared living
+            environment.
+          </p>
+          <p class="text-gray-600 text-base mb-8">
+            Built with passion by a team of five dedicated Computer Science
+            students from Daffodil International University, our mission is to
+            provide a hassle-free experience for mess members by offering
+            automated calculations, intuitive interfaces, and real-time data
+            handling.
+          </p>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 mt-8">
+            <!-- Team Member Card -->
+            <div class="bg-white shadow rounded-lg p-4">
+              <h3 class="text-lg font-semibold text-gray-800">Member 1</h3>
+              <p class="text-gray-500 text-sm">Frontend Developer</p>
+            </div>
+            <div class="bg-white shadow rounded-lg p-4">
+              <h3 class="text-lg font-semibold text-gray-800">Member 2</h3>
+              <p class="text-gray-500 text-sm">Backend Developer</p>
+            </div>
+            <div class="bg-white shadow rounded-lg p-4">
+              <h3 class="text-lg font-semibold text-gray-800">Member 3</h3>
+              <p class="text-gray-500 text-sm">Database Designer</p>
+            </div>
+            <div class="bg-white shadow rounded-lg p-4">
+              <h3 class="text-lg font-semibold text-gray-800">Member 4</h3>
+              <p class="text-gray-500 text-sm">UI/UX Designer</p>
+            </div>
+            <div class="bg-white shadow rounded-lg p-4">
+              <h3 class="text-lg font-semibold text-gray-800">Member 5</h3>
+              <p class="text-gray-500 text-sm">Documentation & Deployment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="h-screen pt-24 text-center w-[40%] mx-auto">
+      <div>
+        <h1 class="text-4xl font-bold font-poppins">Contact Us</h1>
+        <!-- Name -->
+        <div>
+          <label
+            for="name"
+            class="block text-sm font-medium text-gray-700 mb-1 text-start"
+            >Name</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500 text-start mb-[20px]" />
+        </div>
 
-    <!-- Sections -->
-    <section id="home" class="h-screen pt-24 text-center">
-      <h1 class="text-4xl">Home</h1>
+        <!-- Email -->
+        <div>
+          <label
+            for="email"
+            class="block text-sm font-medium text-gray-700 mb-1 text-start"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            pattern="^[a-zA-Z0-9._%+-]+@diu\.edu\.bd$"
+            required
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500 mb-[20px]" />
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label
+            for="message"
+            class="block text-sm font-medium text-gray-700 mb-1 text-start"
+            >Message</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500 mb-[20px]"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="w-full bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition cursor-pointer shadow-gone duration-150 btn-cus-shadow">
+          <span class="active:text-[15.9px]">Send Message</span>
+        </button>
+      </div>
     </section>
-    <section id="about" class="h-screen pt-24 text-center">
-      <h1 class="text-4xl">About</h1>
+
+    <section
+      id="faq"
+      class="mb-[200px] md:scroll-mt-24 scroll-mt-40 max-w-[1250px] mx-auto font-poppins">
+      <!-- <h1 class="font-poppins font-bold text-[36px] text-center mb-[60px]">
+        <span class="text-[#00BCFF]">Frequently</span> Asked Questions
+      </h1> -->
+      <div class="mb-[100px] md:mb[130px]">
+        <!-- heading -->
+        <h1
+          class="text-center mb-[50px] font-semibold lg:text-5xl md:text-3xl text-2xl">
+          Frequently Asked <span class="text-[#00BCFF]">Questions</span>
+        </h1>
+        <div class="grid grid-cols-1 lg:grid-cols-[50%_50%] lg:gap-0 gap-6">
+          <!-- image -->
+          <div class="self-center">
+            <img
+              src="./../assets/faq.png"
+              alt=""
+              class="w-3/5 justify-self-center" />
+          </div>
+          <!-- accordion -->
+          <div class="space-y-2">
+            <div
+              class="collapse collapse-arrow bg-transparent border border-[#D5E5FB] rounded-md">
+              <input type="radio" name="my-accordion-2" checked="checked" />
+              <div class="collapse-title text-xl font-medium">
+                What are the most important things I should know about riding a
+                bike?
+              </div>
+              <div class="collapse-content">
+                <p>
+                  Safety First! Always obey the rules of the road. Obey all
+                  traffic signals, signs, and laws. Get in the mindset of
+                  “driving” your bike—not just “riding” your bike. This will
+                  help you be a more focused and legally compliant bike rider.
+                </p>
+              </div>
+            </div>
+            <div
+              class="collapse collapse-arrow bg-transparent border border-[#D5E5FB] rounded-md">
+              <input type="radio" name="my-accordion-2" />
+              <div class="collapse-title text-xl font-medium">
+                How can I tell if my helmet is old and I need a new one?
+              </div>
+              <div class="collapse-content">
+                <p>
+                  Safety First! Always obey the rules of the road. Obey all
+                  traffic signals, signs, and laws. Get in the mindset of
+                  “driving” your bike—not just “riding” your bike. This will
+                  help you be a more focused and legally compliant bike rider.
+                </p>
+              </div>
+            </div>
+            <div
+              class="collapse collapse-arrow bg-transparent border border-[#D5E5FB] rounded-md">
+              <input type="radio" name="my-accordion-2" />
+              <div class="collapse-title text-xl font-medium">
+                My bike has been in storage is it safe to ride?
+              </div>
+              <div class="collapse-content">
+                <p>
+                  Safety First! Always obey the rules of the road. Obey all
+                  traffic signals, signs, and laws. Get in the mindset of
+                  “driving” your bike—not just “riding” your bike. This will
+                  help you be a more focused and legally compliant bike rider.
+                </p>
+              </div>
+            </div>
+            <div
+              class="collapse collapse-arrow bg-transparent border border-[#D5E5FB] rounded-md">
+              <input type="radio" name="my-accordion-2" />
+              <div class="collapse-title text-xl font-medium">
+                What rules should I follow when riding my bike?
+              </div>
+              <div class="collapse-content">
+                <p>
+                  Safety First! Always obey the rules of the road. Obey all
+                  traffic signals, signs, and laws. Get in the mindset of
+                  “driving” your bike—not just “riding” your bike. This will
+                  help you be a more focused and legally compliant bike rider.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    <section id="services" class="h-screen pt-24 text-center">
-      <h1 class="text-4xl">Services</h1>
-    </section>
-    <section id="contact" class="h-screen pt-24 text-center">
-      <h1 class="text-4xl">Contact</h1>
-    </section>
+
+    <footer
+      class="footer footer-horizontal footer-center bg-[#010822] text-base-content rounded p-10 font-poppins text-white">
+      <nav class="grid grid-flow-col gap-4">
+        <a href="#home" class="link link-hover">Home</a>
+        <a href="#menu" class="link link-hover">Menu</a>
+        <a href="#about" class="link link-hover">About us</a>
+        <a href="#contact" class="link link-hover">Contact</a>
+        <a href="#Faq" class="link link-hover">FAQ</a>
+      </nav>
+      <nav>
+        <div class="grid grid-flow-col gap-4">
+          <a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="fill-current">
+              <path
+                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+            </svg>
+          </a>
+          <a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="fill-current">
+              <path
+                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+            </svg>
+          </a>
+          <a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="fill-current">
+              <path
+                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+            </svg>
+          </a>
+        </div>
+      </nav>
+      <aside>
+        <p>
+          Copyright © 2025 - All right reserved by
+          <span class="font-bold">SMAMS</span> Industries Ltd
+        </p>
+      </aside>
+    </footer>
 
     <!-- JS ScrollSpy -->
     <script src="./../scripts/app.js"></script>
+    <script src="./../scripts/toggle.js"></script>
   </body>
 </html>

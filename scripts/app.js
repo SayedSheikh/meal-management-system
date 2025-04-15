@@ -12,9 +12,19 @@ window.addEventListener("scroll", () => {
   });
 
   navLinks.forEach((link) => {
-    link.classList.remove("border-blue-500", "text-blue-500");
+    link.classList.remove("border-blue-500", "text-blue-500", "text-gray-600");
     if (link.getAttribute("href") === `#${current}`) {
       link.classList.add("border-blue-500", "text-blue-500");
     }
+
+    // console.log(link);
+  });
+  navLinks.forEach((link) => {
+    if (link.getAttribute("href") !== `#${current}`) {
+      link.classList.add("text-gray-600");
+    }
   });
 });
+
+// console.log(sections);
+// console.log(navLinks);
