@@ -115,8 +115,14 @@ const loadMenuItems = (typee) => {
       displayMenuItems(data, typee);
     })
     .catch((err) => {
-      console.error("Error:", err);
-      alert("Could not load menu items. Please try again.");
+      // console.error("Error:", err);
+      // alert("Could not load menu items. Please try again.");
+      Swal.fire({
+        icon: "Could not load menu items. Please try again",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
     });
 };
 
@@ -313,8 +319,12 @@ const orderConfirm = () => {
       return res.json();
     })
     .then((response) => {
-      console.log("Order confirmed:", response);
-      alert("Order placed successfully!");
+      // alert("Order placed successfully!");
+      Swal.fire({
+        title: "Order placed successfully!",
+        icon: "success",
+        draggable: true,
+      });
       clearUI();
     })
     .catch((error) => {
@@ -456,11 +466,26 @@ const handleContactUs = () => {
       return res.json();
     })
     .then((response) => {
-      alert("Message send successfully!");
+      // alert("Message send successfully!");
+      Swal.fire({
+        title: "Message send successfully!",
+        icon: "success",
+        draggable: true,
+      });
+
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("message").value = "";
     })
     .catch((error) => {
-      console.error("Order Error:", error);
-      alert("Error sending message. Please try again.");
+      // alert("Error sending message. Please try again.");
+
+      Swal.fire({
+        icon: "Error sending message. Please try again.",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
     });
 };
 

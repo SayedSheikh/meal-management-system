@@ -2,6 +2,10 @@ const loginClick = () => {
   window.location.href = "./../files/login.html";
 };
 
+const regClick = () => {
+  window.location.href = "./../files/registration.html";
+};
+
 document.getElementById("create-account")?.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -12,7 +16,13 @@ document.getElementById("create-account")?.addEventListener("click", (e) => {
   const password = document.getElementById("password").value;
 
   if (!name || !username || !email || !phone || !password) {
-    alert("Please fill out all fields.");
+    // alert("Please fill out all fields.");
+    Swal.fire({
+      icon: "Please fill out all fields.",
+      title: "Oops...",
+      text: "Something went wrong!",
+      footer: '<a href="#">Why do I have this issue?</a>',
+    });
     return;
   }
 
@@ -32,19 +42,30 @@ document.getElementById("create-account")?.addEventListener("click", (e) => {
     body: JSON.stringify(data),
   })
     .then((response) => {
-      console.log(response);
-      console.log("Registration successful:", response);
-      alert("Registration successful! You can now log in.");
+      // console.log(response);
+      // console.log("Registration successful:", response);
+
+      // alert("Registration successful! You can now log in.");
+
+      Swal.fire({
+        title: "Registration successful! You can now log in.",
+        icon: "success",
+        draggable: true,
+      });
       // Optionally redirect
       window.location.href = "./../files/login.html";
     })
     .catch((error) => {
-      console.error("Error during registration:", error);
-      alert("Registration failed. Please try again.");
+      // alert("Registration failed. Please try again.");
+
+      Swal.fire({
+        icon: "Registration failed. Please try again.",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
     });
 });
-
-// const regClick = () => {};
 
 document.getElementById("login-press")?.addEventListener("click", (e) => {
   e.preventDefault();
@@ -77,13 +98,23 @@ document.getElementById("login-press")?.addEventListener("click", (e) => {
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
 
-      alert(`Welcome ${user.username}! You are logged in`);
+      // alert(`Welcome ${user.username}! You are logged in`);
+      Swal.fire({
+        title: `Welcome ${user.username}! You are logged in`,
+        icon: "success",
+        draggable: true,
+      });
       // Optionally redirect
       window.location.href = "./../files/home.html";
     })
     .catch((error) => {
-      console.error("Login Error:", error);
-      alert("Invalid username or password.");
+      // alert("Invalid username or password.");
+      Swal.fire({
+        icon: "Invalid username or password.",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
     });
 });
 
