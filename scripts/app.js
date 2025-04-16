@@ -1,6 +1,7 @@
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-link");
 let cartItem = [];
+let loader = document.getElementById("loader");
 
 window.addEventListener("scroll", () => {
   let current = "";
@@ -91,6 +92,10 @@ const displayProfile = (data) => {
 };
 
 const loadMenuItems = (typee) => {
+  const cardContainer = document.getElementById("cardContainer");
+  cardContainer.innerHTML = "";
+
+  loader.classList.remove("hidden");
   const token = localStorage.getItem("token");
 
   fetch("http://45.143.198.44:8070/api/menu", {
@@ -115,23 +120,50 @@ const loadMenuItems = (typee) => {
     });
 };
 
+const resetBtn = () => {
+  const btns = document.querySelectorAll(".bg-blue-700.text-white");
+  // console.log(btns);
+  btns.forEach((btn, indx) => {
+    btn.classList.remove("bg-blue-700", "text-white");
+  });
+};
+
 const displayMenuItems = (data, typee) => {
   let newData = [];
 
   if (typee === "breakfast") {
     newData = data.filter((el) => el.category.toLowerCase() === "breakfast");
+    resetBtn();
+    document
+      .getElementById("breakfast")
+      .classList.add("bg-blue-700", "text-white");
   } else if (typee === "dinner") {
     newData = data.filter((el) => el.category.toLowerCase() === "dinner");
-  } else if (typee === "launch") {
+    resetBtn();
+    document
+      .getElementById("dinner")
+      .classList.add("bg-blue-700", "text-white");
+  } else if (typee === "lunch") {
+    resetBtn();
     newData = data.filter((el) => el.category.toLowerCase() === "lunch");
+    document.getElementById("lunch").classList.add("bg-blue-700", "text-white");
   } else if (typee === "snacks") {
+    resetBtn();
     newData = data.filter((el) => el.category.toLowerCase() === "snacks");
+    document
+      .getElementById("snacks")
+      .classList.add("bg-blue-700", "text-white");
   } else if (typee === "ice-cream") {
+    resetBtn();
     newData = data.filter((el) => el.category.toLowerCase() === "ice-cream");
+    document
+      .getElementById("icecream")
+      .classList.add("bg-blue-700", "text-white");
   }
 
   const cardContainer = document.getElementById("cardContainer");
   cardContainer.innerHTML = "";
+  loader.classList.add("hidden");
 
   newData.forEach((item) => {
     item.quantity = 1; // default quantity
@@ -307,6 +339,129 @@ const clearUI = () => {
       <button id='viewCart' class="btn btn-primary btn-block">View cart</button>
     </div>
   `;
+};
+
+const handleOrderHistory = () => {
+  // fetch('http://45.143.198.44:8070/api/customers/orders')
+
+  const token = localStorage.getItem("token");
+
+  fetch("http://45.143.198.44:8070/api/customers/orders", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch menu items");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      showHistoryInModal(data);
+    })
+    .catch((err) => {
+      console.error("Error:", err);
+      alert("Could not load menu items. Please try again.");
+    });
+};
+
+const showHistoryInModal = (data) => {
+  console.log(data);
+  let modal = document.getElementById("my_modal_1");
+  modal.innerHTML = "";
+
+  modal.innerHTML = `
+  <div class="modal-box w-[80%] max-h-[90vh] overflow-y-auto">
+    <h3 class="text-xl font-bold mb-4">Order History</h3>
+    ${data
+      .map((order, index) => {
+        const items = JSON.parse(order.items); // parse the stringified array
+
+        return `
+        <div class="mb-6 border-b pb-4">
+          <h4 class="font-semibold mb-2">Order #${order.id} - ${new Date(
+          order.created_at
+        ).toLocaleString()}</h4>
+          <table class="table-auto w-full text-left border-collapse mb-2">
+            <thead>
+              <tr>
+                <th class="border px-4 py-2">Name</th>
+                <th class="border px-4 py-2">Price</th>
+                <th class="border px-4 py-2">Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${items
+                .map(
+                  (item) => `
+                <tr>
+                  <td class="border px-4 py-2">${item.name}</td>
+                  <td class="border px-4 py-2">$${item.price.toFixed(2)}</td>
+                  <td class="border px-4 py-2">${item.quantity}</td>
+                </tr>
+              `
+                )
+                .join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+      })
+      .join("")}
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+`;
+
+  // Show the modal
+  modal.showModal();
+};
+
+const handleContactUs = () => {
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let message = document.getElementById("message").value;
+
+  let user = JSON.parse(localStorage.getItem("user"));
+
+  let userId = user.id;
+
+  // const { user_id, name, email, message } = req.body;
+
+  const Data = {
+    user_id: userId,
+    name: name,
+    email: email,
+    message: message,
+  };
+
+  fetch("http://45.143.198.44:8070/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+    body: JSON.stringify(Data),
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return res.json();
+    })
+    .then((response) => {
+      alert("Message send successfully!");
+    })
+    .catch((error) => {
+      console.error("Order Error:", error);
+      alert("Error sending message. Please try again.");
+    });
 };
 
 // console.log(sections);

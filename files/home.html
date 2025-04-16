@@ -143,7 +143,7 @@
                   <span class="badge">New</span>
                 </a>
               </li>
-              <li><a>Order history</a></li>
+              <li onclick="handleOrderHistory()"><a>Order history</a></li>
               <li onclick="handleLogout()"><a>Logout</a></li>
             </ul>
           </div>
@@ -188,31 +188,31 @@
         id="button-container"
         class="flex justify-center items-center gap-[17px] mb-[27px] flex-wrap mt-[20px]">
         <button
-          id="id-${el.id}"
+          id="breakfast"
           onclick="loadMenuItems('breakfast')"
           class="btn btn-outline btn-primary h-[35px]">
           <i class="fa-solid fa-book-open text-base"></i>Breakfast
         </button>
         <button
-          id="id-${el.id}"
-          onclick="loadMenuItems('launch')"
+          id="lunch"
+          onclick="loadMenuItems('lunch')"
           class="btn btn-outline btn-primary h-[35px]">
-          <i class="fa-solid fa-book-open text-base"></i>Launch
+          <i class="fa-solid fa-book-open text-base"></i>Lunch
         </button>
         <button
-          id="id-${el.id}"
+          id="dinner"
           onclick="loadMenuItems('dinner')"
           class="btn btn-outline btn-primary h-[35px]">
           <i class="fa-solid fa-book-open text-base"></i>Dinner
         </button>
         <button
-          id="id-${el.id}"
+          id="snacks"
           onclick="loadMenuItems('snacks')"
           class="btn btn-outline btn-primary h-[35px]">
           <i class="fa-solid fa-book-open text-base"></i>Snacks
         </button>
         <button
-          id="id-${el.id}"
+          id="icecream"
           onclick="loadMenuItems('ice-cream')"
           class="btn btn-outline btn-primary h-[35px]">
           <i class="fa-solid fa-book-open text-base"></i>Ice cream
@@ -222,6 +222,9 @@
       <div
         id="cardContainer"
         class="max-w-[1250px] mx-auto flex flex-wrap gap-[20px] justify-center mt-[60px]"></div>
+      <span
+        id="loader"
+        class="loading loading-dots loading-xl w-[50px] hidden"></span>
     </section>
     <section id="about" class="h-screen pt-24 text-center text-poppins">
       <!-- <h1 class="text-4xl">About</h1> -->
@@ -319,7 +322,8 @@
 
         <!-- Submit -->
         <button
-          type="submit"
+          id="submit"
+          onclick="handleContactUs()"
           class="w-full bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition cursor-pointer shadow-gone duration-150 btn-cus-shadow">
           <span class="active:text-[15.9px]">Send Message</span>
         </button>
