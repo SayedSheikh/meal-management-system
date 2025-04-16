@@ -31,14 +31,27 @@
             >Full Name</label
           >
           <input
+            id="name"
             type="text"
             placeholder="John Doe"
             class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300" />
         </div>
 
         <div>
+          <label class="block text-sm font-medium text-gray-700"
+            >User name</label
+          >
+          <input
+            id="username"
+            type="text"
+            placeholder="••••••••"
+            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300" />
+        </div>
+
+        <div>
           <label class="block text-sm font-medium text-gray-700">Email</label>
           <input
+            id="email"
             type="email"
             placeholder="you@example.com"
             class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300" />
@@ -49,6 +62,7 @@
             >Phone Number</label
           >
           <input
+            id="phone"
             type="text"
             placeholder="+8801XXXXXXXXX"
             class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300" />
@@ -59,23 +73,15 @@
             >Password</label
           >
           <input
-            type="password"
-            placeholder="••••••••"
-            class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300" />
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-gray-700"
-            >Confirm Password</label
-          >
-          <input
+            id="password"
             type="password"
             placeholder="••••••••"
             class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300" />
         </div>
 
         <button
-          type="submit"
+          type="button"
+          id="create-account"
           class="w-full bg-blue-400 hover:bg-blue-500 text-white font-semibold py-2 rounded-lg transition duration-300">
           Create Account
         </button>
@@ -88,5 +94,7 @@
         >
       </p>
     </div>
+
+    <script src="./../scripts/toggle.js"></script>
   </body>
 </html>
